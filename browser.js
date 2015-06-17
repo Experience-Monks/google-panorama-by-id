@@ -1,5 +1,4 @@
 /*globals google*/
-
 module.exports = function panoramaById (opt, cb) {
   opt = opt || {}
   if (typeof opt === 'string') {
