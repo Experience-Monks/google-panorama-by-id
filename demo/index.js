@@ -7,9 +7,8 @@ var service = new google.maps.StreetViewService()
 test('should get photosphere data with service', function (t) {
   var id = 'FIBH8jtubItyC2AUqPhQFw'
   t.plan(4)
-  panorama({
-    service: service,
-    id: id
+  panorama(id, {
+    service: service
   }, function (err, result) {
     if (err) return t.fail(err)
     t.deepEqual(result.id, 'FIBH8jtubItyC2AUqPhQFw')
@@ -22,9 +21,8 @@ test('should get photosphere data with service', function (t) {
 test('should get street view data with service', function (t) {
   var id = 'dXZfBMex9_L7jO2JW3FTdA'
   t.plan(4)
-  panorama({
-    service: service,
-    id: id
+  panorama(id, {
+    service: service
   }, function (err, result) {
     if (err) return t.fail(err)
     t.deepEqual(result.id, 'dXZfBMex9_L7jO2JW3FTdA')

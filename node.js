@@ -1,14 +1,16 @@
 var request = require('./lib/request')
 
-module.exports = function panoramaById (opt, cb) {
+module.exports = function panoramaById (id, opt, cb) {
+  if (!id || typeof id !== 'string') {
+    throw new TypeError('must provide pano id')
+  }
+
+  if (typeof opt === 'function') {
+    cb = opt
+    opt = {}
+  }
+
   opt = opt || {}
-  if (typeof opt === 'string') {
-    opt = { id: opt }
-  }
-  var id = opt.id
-  if (!id) {
-    throw new TypeError('must provide pano ID')
-  }
 
   var url = 'http://maps.google.com/cbk?output=json&cb_client=apiv3&v=4&dm=1&pm=1&ph=1&hl=en&panoid=' + id
 

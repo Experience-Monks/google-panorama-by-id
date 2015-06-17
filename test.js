@@ -9,4 +9,10 @@ test('should get panorama', function (t) {
     t.deepEqual(result.latitude, 51.507067)
     t.deepEqual(result.longitude, -0.128016)
   })
+
+  if (typeof window !== 'undefined' && window.close) {
+    setTimeout(function () {
+      window.close()
+    }, 500)
+  }
 })

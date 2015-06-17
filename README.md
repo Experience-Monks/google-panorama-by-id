@@ -29,11 +29,10 @@ In Node, the request uses an undocumented API entry-point, using [request](https
 
 [![NPM](https://nodei.co/npm/google-panorama-by-id.png)](https://www.npmjs.com/package/google-panorama-by-id)
 
-#### `panorama(opt, cb)`
+#### `panorama(id, [opt], cb)`
 
-Gets the panorama data at the given ID, where `opt` can be a pano ID string like `"dXZfBMex9_L7jO2JW3FTdA"`, or an options object with:
+Gets the panorama data at the given `id`, a pano_id string like `"dXZfBMex9_L7jO2JW3FTdA"`. The `opt` object is optional, and can contain:
 
-- `id` - the pano ID string
 - `service` - (browser only) the Google API `StreetViewService` to use, defaults to a new instance
 
 The Node-style callback uses the form `(err, result)`, where `err` will be null if a street view was found. On success, `result` is an object containing:

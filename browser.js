@@ -1,13 +1,15 @@
 /*globals google*/
-module.exports = function panoramaById (opt, cb) {
+module.exports = function panoramaById (id, opt, cb) {
+  if (!id || typeof id !== 'string') {
+    throw new TypeError('must provide pano id')
+  }
+
+  if (typeof opt === 'function') {
+    cb = opt
+    opt = {}
+  }
+
   opt = opt || {}
-  if (typeof opt === 'string') {
-    opt = { id: opt }
-  }
-  var id = opt.id
-  if (!id) {
-    throw new TypeError('must provide pano ID')
-  }
 
   var service = opt.service
   if (!service) {
