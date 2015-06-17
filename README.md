@@ -7,8 +7,8 @@ Gets a Google Street View by pano ID. Also features some Node support.
 ```js
 var panorama = require('google-panorama-by-id')
 
-var location = [ 51.50700703827454, -0.12791916931155356 ]
-panorama(location, function (err, result) {
+var id = 'dXZfBMex9_L7jO2JW3FTdA'
+panorama(id, function (err, result) {
   if (err) throw err
   
   // pano ID
