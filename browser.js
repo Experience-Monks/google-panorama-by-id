@@ -20,11 +20,15 @@ module.exports = function panoramaById (id, opt, cb) {
     service = new google.maps.StreetViewService()
   }
 
-  if (typeof service.getPanoramaByLocation !== 'function') {
-    throw new TypeError('must provide valid service with getPanoramaByLocation')
+  if (typeof service.getPanorama === 'function') {
+    service.getPanorama({ pano: id }, handleResponse)
+  } else if (typeof service.getPanoramaByLocation === 'function') {
+    service.getPanoramaById(id, handleResponse)
+  } else {
+    throw new TypeError('must provide valid service with getPanorama or getPanoramaByLocation')
   }
-
-  service.getPanoramaById(id, function (result, status) {
+  
+  function handleResponse (result, status) {
     if (/^ok$/i.test(status)) {
       result.id = result.location.pano
       result.latitude = result.location.latLng.lat()
@@ -33,5 +37,5 @@ module.exports = function panoramaById (id, opt, cb) {
     } else {
       cb(new Error('could not find street view by id: ' + id))
     }
-  })
+  }
 }
