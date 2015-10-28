@@ -1,6 +1,6 @@
 {
   "name": "google-panorama-by-id",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "gets a Google Street View by pano id",
   "main": "./index.js",
   "browser": {
